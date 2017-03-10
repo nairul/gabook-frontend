@@ -1,0 +1,7 @@
+<a data-ui-sref="userNew">New User</a>
+
+<h2>These are all the users</h2>
+
+<div data-ng-repeat="user in vm.users">
+  <p><a data-ui-sref="userShow({id: user.$id})">{{user.firstname}} {{user.lastname}}</a></p>
+</div>
