@@ -64,7 +64,7 @@ angular
 }
 
 function UserFactoryFunction( $resource ) {
-  return $resource( "https://gist.githubusercontent.com/dhouston14/648df5bcffca8c195daba3fa03e37354/raw/5329d0d7218016cc07012c74ef26fdf7e00b00a3/data.json" )
+  return $resource( "https://gist.githubusercontent.com/dhouston14/648df5bcffca8c195daba3fa03e37354/raw/06f565f4a76c2abfab9f28d50ecbccc585ac60cf/data.json" )
 }
 
 function UserIndexControllerFunction( UserFactory ){
