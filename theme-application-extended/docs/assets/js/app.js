@@ -64,7 +64,9 @@ angular
 }
 
 function ProfileFactoryFunction( $resource ) {
-  return $resource( "https://gist.githubprofilecontent.com/dhouston14/648df5bcffca8c195daba3fa03e37354/raw/06f565f4a76c2abfab9f28d50ecbccc585ac60cf/data.json" )
+  return $resource( "https://gabook.herokuapp.com/profiles/:id.json", {}, {
+    update: { method: "PUT" }
+  });
 }
 
 function ProfileIndexControllerFunction( ProfileFactory ){
@@ -79,7 +81,6 @@ function ProfileNewControllerFunction( ProfileFactory ){
 
 function ProfileShowControllerFunction( ProfileFactory, $stateParams ){
   this.profile = ProfileFactory.get({id: $stateParams.id});
-  console.log(this.profile)
 }
 
 function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
