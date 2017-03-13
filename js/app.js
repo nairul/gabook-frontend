@@ -78,7 +78,8 @@ function UserNewControllerFunction( UserFactory ){
 }
 
 function UserShowControllerFunction( UserFactory, $stateParams ){
-  this.user = UserFactory.get({id: $stateParams.id})
+  this.user = UserFactory.get({id: $stateParams.id});
+  console.log(this.user)
 }
 
 function UserEditControllerFunction( UserFactory, $stateParams ){
