@@ -9,85 +9,85 @@ angular
     "$stateProvider",
     RouterFunction
   ])
-  .factory("UserFactory", [
+  .factory("ProfileFactory", [
   	"$resource",
-  	UserFactoryFunction
+  	ProfileFactoryFunction
   ])
-  .controller("UserIndexController", [
-  	"UserFactory",
-  	UserIndexControllerFunction
+  .controller("ProfileIndexController", [
+  	"ProfileFactory",
+  	ProfileIndexControllerFunction
   ])
-  .controller("UserShowController", [
-  	"UserFactory",
+  .controller("ProfileShowController", [
+  	"ProfileFactory",
   	"$stateParams",
-  	UserShowControllerFunction
+  	ProfileShowControllerFunction
   ])
-  .controller("UserNewController", [
-  	"UserFactory",
-  	UserNewControllerFunction
+  .controller("ProfileNewController", [
+  	"ProfileFactory",
+  	ProfileNewControllerFunction
   ])
-  .controller("UserEditController", [
-  	"UserFactory",
+  .controller("ProfileEditController", [
+  	"ProfileFactory",
   	"$stateParams",
-  	UserEditControllerFunction
+  	ProfileEditControllerFunction
   ])
 
   function RouterFunction($stateProvider){
   $stateProvider
-  .state("userIndex", {
-    url: "/users",
-    templateUrl: "js/ng-views/users/index.html",
-    controller: "UserIndexController",
+  .state("profileIndex", {
+    url: "/profiles",
+    templateUrl: "js/ng-views/profiles/index.html",
+    controller: "ProfileIndexController",
     controllerAs: "vm"
   })
   $stateProvider
-  .state("userNew", {
-    url: "/users/new",
-    templateUrl: "js/ng-views/users/new.html",
-    controller: "UserNewController",
+  .state("profileNew", {
+    url: "/profiles/new",
+    templateUrl: "js/ng-views/profiles/new.html",
+    controller: "ProfileNewController",
     controllerAs: "vm"
   })
   $stateProvider
-  .state("userShow", {
-    url: "/users/:id",
-    templateUrl: "js/ng-views/users/show.html",
-    controller: "UserShowController",
+  .state("profileShow", {
+    url: "/profiles/:id",
+    templateUrl: "js/ng-views/profiles/show.html",
+    controller: "ProfileShowController",
     controllerAs: "vm"
   })
   $stateProvider
-  .state("userEdit", {
-  	url: "/users/:id/edit",
-  	templateUrl: "js/ng-views/users/edit.html",
-  	controller: "UserEditController",
+  .state("profileEdit", {
+  	url: "/profiles/:id/edit",
+  	templateUrl: "js/ng-views/profiles/edit.html",
+  	controller: "ProfileEditController",
   	controllerAs: "vm"
   })
 }
 
-function UserFactoryFunction( $resource ) {
-  return $resource( "https://gist.githubusercontent.com/dhouston14/648df5bcffca8c195daba3fa03e37354/raw/06f565f4a76c2abfab9f28d50ecbccc585ac60cf/data.json" )
+function ProfileFactoryFunction( $resource ) {
+  return $resource( "https://gist.githubprofilecontent.com/dhouston14/648df5bcffca8c195daba3fa03e37354/raw/06f565f4a76c2abfab9f28d50ecbccc585ac60cf/data.json" )
 }
 
-function UserIndexControllerFunction( UserFactory ){
-  this.users = UserFactory.query()
+function ProfileIndexControllerFunction( ProfileFactory ){
+  this.profiles = ProfileFactory.query()
 }
-function UserNewControllerFunction( UserFactory ){
-  this.user = new UserFactory()
+function ProfileNewControllerFunction( ProfileFactory ){
+  this.profile = new ProfileFactory()
   this.create = function(){
-    this.user.$save()
+    this.profile.$save()
   }
 }
 
-function UserShowControllerFunction( UserFactory, $stateParams ){
-  this.user = UserFactory.get({id: $stateParams.id});
-  console.log(this.user)
+function ProfileShowControllerFunction( ProfileFactory, $stateParams ){
+  this.profile = ProfileFactory.get({id: $stateParams.id});
+  console.log(this.profile)
 }
 
-function UserEditControllerFunction( UserFactory, $stateParams ){
-    this.user = UserFactory.get({id: $stateParams.id});
+function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
+    this.profile = ProfileFactory.get({id: $stateParams.id});
     this.update = function(){
-      this.user.$update({id: $stateParams.id})
+      this.profile.$update({id: $stateParams.id})
     }
     this.destroy = function(){
-      this.user.$delete({id: $stateParams.id});
+      this.profile.$delete({id: $stateParams.id});
     }
  }
