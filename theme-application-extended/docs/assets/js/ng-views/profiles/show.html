@@ -1,3 +1,15 @@
 <h1>Profile Show</h1>
-
-<p>{{this.profile[0]}}</p>
+<img ng-src="{{vm.profile.image}}">
+<p>{{vm.profile.name}}</p>
+<p>Cohort: {{vm.profile.cohort}}</p>
+<p>City: {{vm.profile.city}}</p>
+<p>Title: {{vm.profile.title}}</p>
+<p>Previously: {{vm.profile.previously}}</p>
+<p>Degree: {{vm.profile.degree}}</p>
+<p>Skills: {{vm.profile.skill1}}, {{vm.profile.skill2}}, {{vm.profile.skill3}}</p>
+<p><a href="{{vm.profile.ga_url}}">GA url</a></p>
+<p><a href="https://{{vm.profile.github_url}}">Github url</a></p>
+<p><a href="https://{{vm.profile.twitter_url}}">Twitter url</a></p>
+<p><a href="https://{{vm.profile.linkedin_url}}">Linkedin url</a></p>
+<p>Created At: {{vm.profile.created_at}}</p>
+<p>Updated At: {{vm.profile.updated_at}}</p>
