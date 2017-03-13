@@ -29,7 +29,6 @@ angular
   .controller("ProfileEditController", [
   	"ProfileFactory",
   	"$stateParams",
-    "$state",
   	ProfileEditControllerFunction
   ])
   .controller("ProfileRedirectController", [
@@ -68,9 +67,9 @@ angular
 }
 
 function ProfileFactoryFunction( $resource ) {
-  return $resource( "https://gabook.herokuapp.com/profiles/:id.json", {
+  return $resource( "https://gabook.herokuapp.com/profiles/:id.json", {}, {
     update: { method: "PUT" }
-  });
+  })
 }
 
 function ProfileIndexControllerFunction( ProfileFactory ){
@@ -87,8 +86,8 @@ function ProfileShowControllerFunction( ProfileFactory, $stateParams ){
   this.profile = ProfileFactory.get({id: $stateParams.id});
 }
 
-function ProfileEditControllerFunction( ProfileFactory, $stateParams, $state ){
-    this.profile = ProfileFactory.get({id: $stateParams.id});
+function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
+    this.profile = ProfileFactory.get({id: $stateParams.id})
     this.update = function(){
       this.profile.$update({id: $stateParams.id})
     }
