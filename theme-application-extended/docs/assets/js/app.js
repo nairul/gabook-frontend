@@ -64,7 +64,9 @@ angular
 }
 
 function ProfileFactoryFunction( $resource ) {
-  return $resource( "https://gabook.herokuapp.com/profiles/:id.json" )
+  return $resource( "https://gabook.herokuapp.com/profiles/:id.json", {}, {
+    update: { method: "PUT" }
+  });
 }
 
 function ProfileIndexControllerFunction( ProfileFactory ){
