@@ -7,13 +7,13 @@
 
   function HomeControllerFunction(authService) {
 
-    var vm = this;
+    var vu = this;
 
-    vm.authService = authService;
+    vu.authService = authService;
 
     authService.getProfileDeferred().then(function (profile) {
-    	vm.user = profile;
-    	console.log(vm.user)
+    	vu.user = profile;
+    	console.log(vu.user)
     });
   }
 })();
