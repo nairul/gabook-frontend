@@ -36,12 +36,13 @@ function ProfileNewControllerFunction( ProfileFactory ){
 
 function ProfileShowControllerFunction( ProfileFactory, CommentFactory, $stateParams ){
   this.profile = ProfileFactory.get({id: $stateParams.id})
+  console.log(this.profile)
+  console.log(this.profile.attr(name))
   this.comment = new CommentFactory()
   this.create = function(){
-    console.log(this.comment)
     this.comment.$save({profile_id: $stateParams.id})
   }
-}
+    }
 
 function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
     this.profile = ProfileFactory.get({id: $stateParams.id})
