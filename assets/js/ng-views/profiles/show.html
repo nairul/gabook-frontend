@@ -35,7 +35,13 @@
 
       <div class="panel panel-default visible-md-block visible-lg-block">
         <div class="panel-body">
-          <h5 class="m-t-0">About <small>· <a data-ui-sref="profileEdit({id: vm.profile.id})">Edit</a></small></h5>
+
+          <h5 class="m-t-0">About<small>·       
+          <span data-ng-show="vm.profile.linkedin_url == vm.user.publicProfileUrl">
+            <a data-ui-sref="profileEdit({id: vm.profile.id})">Edit</a>
+            </span></small></h5>
+
+
           <ul class="list-unstyled list-spaced">
             <li><span class="text-muted icon icon-calendar m-r"></span>Degree: {{vm.profile.degree}}
             <li><span class="text-muted icon icon-calendar m-r"></span> {{vm.profile.previously}}

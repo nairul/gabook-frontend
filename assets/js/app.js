@@ -1,6 +1,10 @@
+
+
+
 (function() {
 
 "use strict";
+
 
 angular
   .module("gaBook", [
@@ -56,6 +60,6 @@ angular
     domain: 'gabook.auth0.com'
   });
 
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
   }
 })();
