@@ -11,8 +11,8 @@
 
     vm.authService = authService;
 
-    authService.getProfileDeferred().then(function (user) {
-    	vm.user = user;
+    authService.getProfileDeferred().then(function (profile) {
+    	vm.user = profile;
     	console.log(vm.user)
     });
   }

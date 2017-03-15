@@ -4,9 +4,9 @@
   </div>
   <div ng-if="isAuthenticated">
     <p>Thank you for logging in! <a href="javascript:;" ng-click="vm.authService.logout()">Log out.</a></p>
-  <p>{{ vm.profile.nickname }}</p>
-  <p><a href="{{vm.profile.publicProfileUrl}}"></a></p>
-  <a href="{{vm.profile.publicProfileUrl}}">{{vm.profile.publicProfileUrl}}</a></p>
-  <img ng-src="{{ vm.profile.picture }}">
+  <p>{{ vm.user.nickname }}</p>
+  <p><a href="{{vm.user.publicProfileUrl}}"></a></p>
+  <a href="{{vm.user.publicProfileUrl}}">{{vm.user.publicProfileUrl}}</a></p>
+  <img ng-src="{{ vm.user.picture }}">
   </div>
 
