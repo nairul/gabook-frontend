@@ -165,26 +165,27 @@
           <!-- </div>
         </li> -->
 
-        <li class="media list-group-item p-a">
+        <li  class="media list-group-item p-a" data-ng-repeat="comments in vm.profile.comments">
           <a class="media-left" href="#">
             <img
               class="media-object img-circle"
-              src="{{vm.profile.comments[0].author_image}}">
+              src="{{comments.author_image}}">
           </a>
-          <div class="media-body">
+          <div class="media-body" >
             <div class="media-body-text">
               <div class="media-heading">
-                <small class="pull-right text-muted">{{vm.profile.comments[0].created_at}}</small>
-                <h5>{{vm.profile.comments[0].author}}</h5>
+                <small class="pull-right text-muted">{{comments.created_at}}</small>
+                <h5>{{comments.author}}</h5>
               </div>
               <p>
-                {{vm.profile.comments[0].content}}
+                {{comments.content}}
               </p>
             </div>
           </div>
         </li>
 
-        <li class="media list-group-item p-a">
+
+        <!-- <li class="media list-group-item p-a">
           <a class="media-left" href="#">
             <img
               class="media-object img-circle"
@@ -198,7 +199,7 @@
 
             <p>
               {{vm.profile.comments[1].content}}
-            </p>
+            </p> -->
 
 <!--             <div class="media-body-inline-grid" data-grid="images">
               <img style="display: none" data-width="640" data-height="640" data-action="zoom" src="assets/img/instagram_3.jpg">
