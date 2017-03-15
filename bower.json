@@ -1,0 +1,26 @@
+{
+  "name": "gabook-frontend",
+  "homepage": "https://github.com/nairul/gabook-frontend",
+  "authors": [
+    "Nairul <awhitehurst4@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "auth0-lock": "10.2.2",
+    "angular-jwt": "^0.1.9",
+    "angular-lock": "^1.0.5"
+  },
+  "resolutions": {
+    "auth0-lock": "10.2.2"
+  }
+}
