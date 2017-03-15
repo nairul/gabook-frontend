@@ -1,0 +1,12 @@
+  <h2>Home</h2>
+  <div ng-if="!isAuthenticated">
+    <p>You are not yet authenticated. <a ui-sref="login">Log in.</a></p>
+  </div>
+  <div ng-if="isAuthenticated">
+    <p>Thank you for logging in! <a href="javascript:;" ng-click="vm.authService.logout()">Log out.</a></p>
+  <p>{{ vm.profile.nickname }}</p>
+  <p><a href="{{vm.profile.publicProfileUrl}}"></a></p>
+  <a href="{{vm.profile.publicProfileUrl}}">{{vm.profile.publicProfileUrl}}</a></p>
+  <img ng-src="{{ vm.profile.picture }}">
+  </div>
+
