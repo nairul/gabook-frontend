@@ -1,3 +1,5 @@
+(function() {
+
 "use strict";
 
 angular
@@ -9,10 +11,6 @@ angular
     "$stateProvider",
     "$locationProvider",
     RouterFunction
-  ])
-  .factory("ProfileFactory", [
-  	"$resource",
-  	ProfileFactoryFunction
   ])
   .controller("ProfileIndexController", [
   	"ProfileFactory",
@@ -68,12 +66,6 @@ angular
   })
 }
 
-function ProfileFactoryFunction( $resource ) {
-  return $resource( "https://gabook.herokuapp.com/profiles/:id.json", {}, {
-    update: { method: "PUT" }
-  })
-}
-
 function ProfileIndexControllerFunction( ProfileFactory ){
   this.profiles = ProfileFactory.query()
 }
@@ -97,3 +89,4 @@ function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
       this.profile.$delete({id: $stateParams.id})
     }
  }
+})();
