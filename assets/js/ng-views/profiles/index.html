@@ -1,8 +1,32 @@
-<a data-ui-sref="profileNew">New Profile</a>
+<!-- <div data-ng-repeat="profile in vm.profiles">
+  <div>
+    <p><a data-ui-sref="profileShow({id: profile.id})">{{profile.name}}</a></p>
+    <p>{{profile.title}}</a></p>
+    <p>{{profile.city}}</a></p>
+    <p><a data-ui-sref="profileEdit({id: profile.id})">Edit</a></p>
+    <hr />
+  </div>
+</div> -->
 
-<h2>These are all the profiles</h2>
+<div class="col-md-6">
+  <ul class="list-group media-list media-list-stream" data-ng-repeat="profile in vm.profiles">
 
-<div data-ng-repeat="profile in vm.profiles">
-  <p><a data-ui-sref="profileShow({id: profile.id})">{{profile.name}}</a></p>
-  
+    <li class="media list-group-item p-a">
+      <a class="media-left" href="#">
+        <img
+          class="media-object img-circle"
+          src="{{profile.image}}">
+      </a>
+      <div class="media-body">
+        <div class="media-body-text">
+          <div class="media-heading">
+            <h5><a data-ui-sref="profileShow({id: profile.id})">{{profile.name}}</a></h5>
+          </div>
+          <p>{{profile.title}}</a></p>
+          <p>{{profile.city}}</a></p>
+          <p><a data-ui-sref="profileEdit({id: profile.id})">Edit</a></p>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>

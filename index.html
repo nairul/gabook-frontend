@@ -11,11 +11,8 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
 
-    <title>
-
-        Home &middot;
-
-    </title>
+    <base href="http://localhost:8080/" />
+    <title>GABook</title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <link href="assets/css/toolkit.css" rel="stylesheet">
@@ -61,11 +58,10 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar-collapse-main">
         <ul class="nav navbar-nav hidden-xs">
-          <!-- <li class="active">
-            <a href="profile/index.html">Index</a>
-          </li> -->
-          <li>
-            <a data-ui-sref="profileIndex">Index</a>
+          <li class="active">
+          <!-- <a href="profile/index.html">Index</a> -->
+            <a data-ui-sref="profileIndex">All GA Profiles</a>
+            <a data-ui-sref="profileNew">New Profile</a>
           </li>
         </ul>
 
@@ -423,7 +419,7 @@
 
 <div class="container p-t-md">
 <main data-ui-view></main>
-  
+
 </div>
 
 

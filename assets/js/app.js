@@ -7,6 +7,7 @@ angular
   ])
   .config([
     "$stateProvider",
+    "$locationProvider",
     RouterFunction
   ])
   .factory("ProfileFactory", [
@@ -35,10 +36,11 @@ angular
 
   ])
 
-  function RouterFunction($stateProvider){
+  function RouterFunction($stateProvider, $locationProvider){
+  $locationProvider.html5Mode(true);
   $stateProvider
   .state("profileIndex", {
-    url: "/profiles",
+    url: "/",
     templateUrl: "assets/js/ng-views/profiles/index.html",
     controller: "ProfileIndexController",
     controllerAs: "vm"
