@@ -86,7 +86,13 @@
     </div>
 
     <div class="col-md-6">
-      <ul class="list-group media-list media-list-stream">
+    <h1>New Comment</h1>
+    <form>
+  <input placeholder="Author" data-ng-model="vm.comment.author" />
+  <input placeholder="Content" data-ng-model="vm.comment.content" />
+  <button type="button" data-ng-click="vm.create()">Create</button>
+    </form>
+<!--       <ul class="list-group media-list media-list-stream">
 
         <li class="media list-group-item p-a">
           <div class="input-group">
@@ -97,7 +103,7 @@
               </button>
             </div>
           </div>
-        </li>
+        </li> -->
 
         <!-- <li class="media list-group-item p-a">
           <a class="media-left" href="#">

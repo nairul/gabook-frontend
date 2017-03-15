@@ -7,8 +7,9 @@
     "ProfileFactory",
     ProfileIndexControllerFunction
     ])
-    .controller("ProfileShowController", [
+    .controller("ProfileShowController", [  
     "ProfileFactory",
+    "CommentFactory",
     "$stateParams",
     ProfileShowControllerFunction
     ])
@@ -33,8 +34,13 @@ function ProfileNewControllerFunction( ProfileFactory ){
   }
 }
 
-function ProfileShowControllerFunction( ProfileFactory, $stateParams ){
-  this.profile = ProfileFactory.get({id: $stateParams.id});
+function ProfileShowControllerFunction( ProfileFactory, CommentFactory, $stateParams ){
+  this.profile = ProfileFactory.get({id: $stateParams.id})
+  this.comment = new CommentFactory()
+  this.create = function(){
+    console.log(this.comment)
+    this.comment.$save({profile_id: $stateParams.id})
+  }
 }
 
 function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
