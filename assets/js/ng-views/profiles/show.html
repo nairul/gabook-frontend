@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="index.html">
-        <img src="assets/img/brand-white.png" alt="brand">
+        <img src="https://www.ap.org/events/ga/assets/logo/logo-ga.jpg" alt="brand">
       </a>
     </div>
     <div class="navbar-collapse collapse" id="navbar-collapse-main">
@@ -17,10 +17,10 @@
           <li class="active"><a data-ui-sref="profileIndex">All Profiles</a></li>
           <li ng-if="isAuthenticated" class="active"><a data-ui-sref="profileNew">New Profile</a></li>
           <!-- <li class="active"><a data-ui-sref="home">Home</a></li> -->
-          <li ng-if="!isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.login()">Log In</a></li>            
+          <li ng-if="!isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.login()">Log In</a></li>
           </li>
-          <li ng-if="isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.logout()">Log out</a></li>            
-          </li>          
+          <li ng-if="isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.logout()">Log out</a></li>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
@@ -103,7 +103,7 @@
       <div class="panel panel-default visible-md-block visible-lg-block">
         <div class="panel-body">
 
-          <h5 class="m-t-0">About<small>·       
+          <h5 class="m-t-0">About<small>·
           <span data-ng-show="vm.profile.linkedin_url == vm.user.publicProfileUrl">
             <a data-ui-sref="profileEdit({id: vm.profile.id})">Edit</a>
             </span></small></h5>
@@ -232,26 +232,26 @@
           <!-- </div>
         </li> -->
 
-        <li class="media list-group-item p-a">
+        <li class="media list-group-item p-a" data-ng-repeat="comments in vm.profile.comments">
           <a class="media-left" href="#">
             <img
-              class="media-object img-circle"
-              src="{{vm.profile.comments[0].author_image}}">
+              class="media-object img-circle tacos"
+              src="{{comments.author_image}}">
           </a>
           <div class="media-body">
             <div class="media-body-text">
               <div class="media-heading">
-                <small class="pull-right text-muted">{{vm.profile.comments[0].created_at}}</small>
-                <h5>{{vm.profile.comments[0].author}}</h5>
+                <small class="pull-right text-muted">{{comments.created_at}}</small>
+                <h5>{{comments.author}}</h5>
               </div>
               <p>
-                {{vm.profile.comments[0].content}}
+                {{comments.content}}
               </p>
             </div>
           </div>
         </li>
 
-        <li class="media list-group-item p-a">
+        <!-- <li class="media list-group-item p-a">
           <a class="media-left" href="#">
             <img
               class="media-object img-circle"
@@ -265,7 +265,7 @@
 
             <p>
               {{vm.profile.comments[1].content}}
-            </p>
+            </p> -->
 
 <!--             <div class="media-body-inline-grid" data-grid="images">
               <img style="display: none" data-width="640" data-height="640" data-action="zoom" src="assets/img/instagram_3.jpg">

@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="index.html">
-        <img src="assets/img/brand-white.png" alt="brand">
+        <img src="https://www.ap.org/events/ga/assets/logo/logo-ga.jpg" alt="brand">
       </a>
     </div>
     <div class="navbar-collapse collapse" id="navbar-collapse-main">
@@ -17,10 +17,10 @@
           <li class="active"><a data-ui-sref="profileIndex">All Profiles</a></li>
           <li ng-if="isAuthenticated" class="active"><a data-ui-sref="profileNew">New Profile</a></li>
           <!-- <li class="active"><a data-ui-sref="home">Home</a></li> -->
-          <li ng-if="!isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.login()">Log In</a></li>            
+          <li ng-if="!isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.login()">Log In</a></li>
           </li>
-          <li ng-if="isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.logout()">Log out</a></li>            
-          </li>          
+          <li ng-if="isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.logout()">Log out</a></li>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
@@ -86,7 +86,7 @@
           </div>
           <p>{{profile.title}}</a></p>
           <p>{{profile.city}}</a></p>
-          <small>·       
+          <small>·
           <span data-ng-show="profile.linkedin_url == vm.user.publicProfileUrl">
             <a data-ui-sref="profileEdit({id: profile.id})">Edit</a>
             </span></small>

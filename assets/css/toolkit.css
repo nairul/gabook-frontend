@@ -1958,6 +1958,7 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
 }
+
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -4174,6 +4175,10 @@ a.thumbnail.active {
   margin-bottom: 22px;
   border: 1px solid transparent;
   border-radius: 4px;
+}
+.tacos{
+  max-height: 80px;
+  max-width: 80px;
 }
 .alert h4 {
   margin-top: 0;
