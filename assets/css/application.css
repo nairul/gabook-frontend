@@ -30,6 +30,7 @@
 }
 .app-navbar .navbar-brand img {
   width: 85px;
+  height: 50px;
 }
 .app-navbar .navbar-collapse {
   max-height: inherit;
