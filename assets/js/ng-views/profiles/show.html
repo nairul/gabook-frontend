@@ -232,7 +232,8 @@
           <!-- </div>
         </li> -->
 
-        <li class="media list-group-item p-a">
+
+       <!--  <li class="media list-group-item p-a">
           <a class="media-left" href="#">
             <img
               class="media-object img-circle"
@@ -265,7 +266,7 @@
 
             <p>
               {{vm.profile.comments[1].content}}
-            </p>
+            </p> -->
 
 <!--             <div class="media-body-inline-grid" data-grid="images">
               <img style="display: none" data-width="640" data-height="640" data-action="zoom" src="assets/img/instagram_3.jpg">
@@ -295,12 +296,11 @@
 <div ng-if="isAuthenticated">
     <h5 class="panel-title">New Comment</h5>
 <br>
-<form>
+  <div>
     <input placeholder="Comment" class="form-control" data-ng-model="vm.comment.content">
-    <input placeholder="Author" class="form-control" data-ng-model="vm.comment.author" />
     <br>
-    <button type="button" class="btn btn-default" data-ng-click="vm.create()">Create</button>
-</form>
+    <button type="button" class="btn btn-default" data-ng-click="vm.create()">Create</button> 
+  </div>
 </div>
     </div>
     <div class="col-md-3">
