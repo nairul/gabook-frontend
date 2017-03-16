@@ -78,6 +78,11 @@ function ProfileShowControllerFunction( ProfileFactory, CommentFactory, $statePa
     });
   this.comment = new CommentFactory()
   this.create = function(){
+    console.log(this.comment)
+    console.log(this.comment.author)
+    console.log(vm.user.nickname)
+    this.comment.author = vm.user.nickname
+    this.comment.author_image = vm.user.picture
     this.comment.$save({profile_id: $stateParams.id})
   }
     }
