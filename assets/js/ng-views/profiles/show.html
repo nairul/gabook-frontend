@@ -1,3 +1,70 @@
+<nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
+
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-main">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/brand-white.png" alt="brand">
+      </a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-collapse-main">
+        <ul class="nav navbar-nav hidden-xs">
+          <li class="active"><a data-ui-sref="profileIndex">All Profiles</a></li>
+          <li ng-if="isAuthenticated" class="active"><a data-ui-sref="profileNew">New Profile</a></li>
+          <!-- <li class="active"><a data-ui-sref="home">Home</a></li> -->
+          <li ng-if="!isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.login()">Log In</a></li>            
+          </li>
+          <li ng-if="isAuthenticated" class="active"><a href="javascript:;" ng-click="vm.authService.logout()">Log out</a></li>            
+          </li>          
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
+          <!-- <li >
+            <a class="app-notifications" href="notifications/index.html">
+              <span class="icon icon-bell"></span>
+            </a>
+          </li> -->
+          <li>
+            <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
+              <img ng-if="isAuthenticated" class="img-circle" src="{{vm.user.picture}}">
+            </button>
+          </li>
+        </ul>
+
+        <!-- <form class="navbar-form navbar-right app-search" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" data-action="grow" placeholder="Search">
+          </div>
+        </form>
+ -->
+        <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile/index.html">Profile</a></li>
+          <li><a href="notifications/index.html">Notifications</a></li>
+          <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
+          <li><a href="docs/index.html">Docs</a></li>
+          <li><a href="#" data-action="growl">Growl</a></li>
+          <li><a href="login/index.html">Logout</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav hidden">
+          <li><a href="#" data-action="growl">Growl</a></li>
+          <li><a href="login/index.html">Logout</a></li>
+        </ul>
+      </div>
+  </div>
+</nav>
+
+
+
+<!-- BELOW NAV -->
+
+
 <div class="row">
     <div class="col-md-3">
       <div class="panel panel-default panel-profile m-b-md">
@@ -10,7 +77,7 @@
           </a>
 
           <h5 class="panel-title">
-            <a class="text-inherit" href="profile/index.html">{{vm.profile.name}}</a>
+            <p class="text-inherit">{{vm.profile.name}}</p>
           </h5>
 
           <p class="m-b-md">{{vm.profile.title}}</p>
@@ -92,12 +159,6 @@
     </div>
 
     <div class="col-md-6">
-    <h1>New Comment</h1>
-    <form>
-  <input placeholder="Author" data-ng-model="vm.comment.author" />
-  <input placeholder="Content" data-ng-model="vm.comment.content" />
-  <button type="button" data-ng-click="vm.create()">Create</button>
-    </form>
 <!--       <ul class="list-group media-list media-list-stream">
 
         <li class="media list-group-item p-a">
@@ -198,7 +259,7 @@
           </a>
           <div class="media-body">
             <div class="media-heading">
-              <small class="pull-right text-muted">{{vm.profile.comments[1].created_at}}</small>
+              <small class="pull-right text-muted">{{vm.profile.comments[].created_at}}</small>
               <h5>{{vm.profile.comments[1].author}}</h5>
             </div>
 
@@ -226,6 +287,21 @@
  -->          </div>
         </li>
       </ul>
+<br>
+<br>
+<div ng-if="!isAuthenticated">
+<span><a href="javascript:;" ng-click="vm.authService.login()">Log In</a> to comment</span>
+</div>
+<div ng-if="isAuthenticated">
+    <h5 class="panel-title">New Comment</h5>
+<br>
+<form>
+    <input placeholder="Comment" class="form-control" data-ng-model="vm.comment.content">
+    <input placeholder="Author" class="form-control" data-ng-model="vm.comment.author" />
+    <br>
+    <button type="button" class="btn btn-default" data-ng-click="vm.create()">Create</button>
+</form>
+</div>
     </div>
     <div class="col-md-3">
       <!-- <div class="alert alert-warning alert-dismissible hidden-xs" role="alert">
@@ -246,7 +322,7 @@
 
       <div class="panel panel-default m-b-md hidden-xs">
         <div class="panel-body">
-        <h5 class="m-t-0">Likes <small>· <a href="#">View All</a></small></h5>
+        <h5 class="m-t-0">Likes</h5>
         <ul class="media-list media-list-stream">
           <li class="media m-b">
             <a class="media-left" href="#">
@@ -262,7 +338,7 @@
               </div> -->
             </div>
           </li>
-           <li class="media">
+           <li class="media m-b">
             <a class="media-left" href="#">
               <img
                 class="media-object img-circle"

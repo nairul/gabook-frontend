@@ -17,30 +17,38 @@
     ])
     .controller("ProfileNewController", [
     "ProfileFactory",
+    "authService",
     ProfileNewControllerFunction
     ])
     .controller("ProfileEditController", [
     "ProfileFactory",
     "$stateParams",
+    "authService",
     ProfileEditControllerFunction
     ])
     
 function ProfileIndexControllerFunction( ProfileFactory, authService ){
-  this.profiles = ProfileFactory.query({}, (profiles) => {    
-  })
+  this.profiles = ProfileFactory.query()
   var vm = this;
   vm.authService = authService;
   authService.getProfileDeferred().then(function (profile) {
     vm.user = profile;
-    // console.log(vm.user.publicProfileUrl)
+    // console.log(vm.user)
     });
   }
 
-function ProfileNewControllerFunction( ProfileFactory ){
+function ProfileNewControllerFunction( ProfileFactory, authService ){
   this.profile = new ProfileFactory()
   this.create = function(){
     this.profile.$save()
   }
+  this.profiles = ProfileFactory.query()
+  var vm = this;
+  vm.authService = authService;
+  authService.getProfileDeferred().then(function (profile) {
+    vm.user = profile;
+    // console.log(vm.user)
+    });
 }
 
 function ProfileShowControllerFunction( ProfileFactory, CommentFactory, $stateParams, authService ){
@@ -62,13 +70,19 @@ function ProfileShowControllerFunction( ProfileFactory, CommentFactory, $statePa
     }
     });
   })
+  var vm = this;
+  vm.authService = authService;
+  authService.getProfileDeferred().then(function (profile) {
+    vm.user = profile;
+    // console.log(vm.user)
+    });
   this.comment = new CommentFactory()
   this.create = function(){
     this.comment.$save({profile_id: $stateParams.id})
   }
     }
 
-function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
+function ProfileEditControllerFunction( ProfileFactory, $stateParams, authService ){
     this.profile = ProfileFactory.get({id: $stateParams.id})
     this.update = function(){
       this.profile.$update({id: $stateParams.id})
@@ -76,6 +90,13 @@ function ProfileEditControllerFunction( ProfileFactory, $stateParams ){
     this.destroy = function(){
       this.profile.$delete({id: $stateParams.id})
     }
+      this.profiles = ProfileFactory.query()
+  var vm = this;
+  vm.authService = authService;
+  authService.getProfileDeferred().then(function (profile) {
+    vm.user = profile;
+    // console.log(vm.user)
+    });
  }
 
 })();
