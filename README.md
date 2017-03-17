@@ -1,5 +1,8 @@
 # gabook-frontend
 
+# Local installation
+[To do]
+
 # Project Description
 GABook is a social media network for GA Alumni and Students. It allows users to create profiles, and interact with each other.
 Deployed app: https://nairul.github.io/gabook-frontend/
